@@ -8,7 +8,7 @@ export default async function HomePage() {
   // await new Promise((resolve) => setTimeout(resolve, 2500));
   // throw new Error()
 
-  const renderedTasks = tasks.map(async (task) => {
+  const renderedTasks = tasks.map((task) => {
     return (
       <TaskItem
         key={task.id}

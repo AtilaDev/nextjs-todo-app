@@ -1,24 +1,20 @@
 'use client';
 
-import { useState } from 'react';
 import { Checkbox, Chip } from '@nextui-org/react';
 import type { Task } from '@prisma/client';
 import * as actions from '@/actions';
 
 export default function TaskItem({ id, title, completed }: Task) {
-  const [isChecked, setChecked] = useState(completed);
-
   const handleCheck = async () => {
-    setChecked((prev) => !prev);
-    await actions.updateTask(id, !isChecked);
+    await actions.updateTask(id, !completed);
   };
 
   return (
     <div className='flex items-center justify-between max-w-2xl mb-2'>
       <div className='flex items-center gap-3'>
         <Checkbox
-          checked={isChecked}
-          defaultSelected={isChecked}
+          checked={completed}
+          defaultSelected={completed}
           onChange={handleCheck}
         />
         <div

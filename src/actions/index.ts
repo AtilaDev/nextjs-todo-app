@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { db } from '@/db';
 
 export async function createTask(
-  formState: { message: string },
+  formState: { message: string } | undefined,
   formData: FormData
 ) {
   try {
