@@ -1,14 +1,9 @@
 'use client';
 
-interface ErrorPageProps {
-  error: Error;
-  reset: () => void;
-}
-
-export default function ErrorPage({ error, reset }: ErrorPageProps) {
+export default function ErrorPage() {
   return (
-    <div className='flex justify-center items-center h-screen'>
-      <h1 className='text-xl font-bold'>{error.message}</h1>
+    <div className='font-bold text-red-500 flex justify-center'>
+      Something went wrong!
     </div>
   );
 }

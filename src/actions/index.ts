@@ -1,7 +1,6 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 import { db } from '@/db';
 
 export async function createTask(
@@ -36,5 +35,29 @@ export async function createTask(
   }
 
   revalidatePath('/');
-  redirect('/');
+}
+
+export async function updateTask(id: number, completed: boolean) {
+  try {
+    await db.task.update({
+      where: {
+        id,
+      },
+      data: {
+        completed,
+      },
+    });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return {
+        message: err.message,
+      };
+    } else {
+      return {
+        message: 'Something went wrong...',
+      };
+    }
+  }
+
+  revalidatePath('/');
 }

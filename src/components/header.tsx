@@ -8,12 +8,22 @@ import {
 export default function Header() {
   return (
     <Navbar className='shadow mb-6'>
-      <NavbarBrand className='text-2xl font-bold'>
-        <h1>NextJS 14 - ToDo App</h1>
+      <NavbarBrand>
+        <span className='md:hidden text-md font-bold'>
+          NextJS 14 - ToDo App
+        </span>
+        <span className='hidden md:inline text-lg font-bold'>
+          NextJS 14 - ToDo App
+        </span>
       </NavbarBrand>
       <NavbarContent justify='end'>
         <NavbarItem>
-          <span className='font-extralight'>Intive Demo by Leandro Favre</span>
+          <span className='md:hidden font-extralight text-xs'>
+            Intive demo by Leandro Favre
+          </span>
+          <span className='hidden md:inline font-extralight'>
+            Intive demo by Leandro Favre
+          </span>
         </NavbarItem>
       </NavbarContent>
     </Navbar>
